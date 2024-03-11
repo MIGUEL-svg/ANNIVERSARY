@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Museum</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item {
+            display: none;
+            margin: 10px;
+        }
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        #prevBtn, #nextBtn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #prevBtn {
+            left: 10px;
+        }
+        #nextBtn {
+            right: 10px;
+        }
+        #letter {
+            display: none;
+            text-align: left;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Anniversary!</h1>
+        <div class="gallery">
+          <div class="gallery-inner">
+            <div class="gallery-item">
+              <img src="milktea 1.jpg" alt="Photo 1">
+          </div>
+          <div class="gallery-item">
+              <img src="milktea 2.jpg" alt="Photo 2">
+          </div>
+          <div class="gallery-item">
+            <img src="IMG_1064.jpg" alt="Photo 2">
+        </div>
+        <div class="gallery-item">
+          <img src="IMG_1483.jpg" alt="Photo 2">
+      </div>
+      <div class="gallery-item">
+        <img src="museum 1.jpg" alt="Photo 2">
+    </div>
+    <div class="gallery-item">
+      <img src="museum 2.jpg" alt="Photo 2">
+  </div>
+  <div class="gallery-item">
+    <img src="together 1.jpg" alt="Photo 2">
+</div>
+<div class="gallery-item">
+  <img src="together 2.jpg" alt="Photo 2">
+</div>
+            <!-- Add more gallery items as needed -->
+            <button id="prevBtn" onclick="prevSlide()">Previous</button>
+            <button id="nextBtn" onclick="nextSlide()">Next</button>
+        </div>
+        <div id="letter">
+            <p>My happiness, this day our anniversary 2 years together, I'm filled with gratitude no gonna lie for the incredible journey we've shared together. Over the past two years, you've filled my life with love, laughter, and boundless joy, and many lesson that's for sure. Every moment with you is a treasure, and I feel blessed to have you by my side, enriching my days with your warmth and kindness. Here's to many more years of adventures, laughter, and endless love with the most beautiful woman I've ever met.</p>
+        </div>
+    </div>
+
+    <script>
+        // Your JavaScript code here
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.gallery-item');
+        const letter = document.getElementById('letter');
+
+        // Show the first slide
+        slides[currentSlide].style.display = 'block';
+
+        function prevSlide() {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            slides[currentSlide].style.display = 'block';
+            updateLetterVisibility();
+        }
+
+        function nextSlide() {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.display = 'block';
+            updateLetterVisibility();
+        }
+
+        function updateLetterVisibility() {
+            if (currentSlide === slides.length - 1) {
+                letter.style.display = 'block';
+            } else {
+                letter.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
